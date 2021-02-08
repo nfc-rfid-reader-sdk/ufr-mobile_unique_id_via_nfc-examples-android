@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Unique ID via NFC example</string>
+    <string name="service_desc">DLogic UniqueID Service</string>
+    <string name="aid_description">UniqueID via NFC example AID</string>
+</resources>
