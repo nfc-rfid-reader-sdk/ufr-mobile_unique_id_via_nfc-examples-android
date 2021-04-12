@@ -1,0 +1,4 @@
+<resources>
+    <string name="firebase_api_key">undefined</string>
+    <!-- OAuth 2.0 Client ID API key obtained from Google Cloud Platform, used for linking with a Firebase project and utilizing Firebase' Google SignIn otpions -->
+</resources>

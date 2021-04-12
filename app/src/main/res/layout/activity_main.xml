@@ -2,11 +2,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:id="@+id/layoutSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/sign_out_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:fontFamily="sans-serif-medium"
+            android:text="Sign out"
+            android:textColor="@android:color/holo_red_light" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:layout_weight="0"
         android:background="#8fc743"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -26,7 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_weight="0"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -34,7 +51,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="0"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -46,7 +62,7 @@
                 android:layout_marginTop="0dp"
                 android:text="Unique ID"
                 android:textColor="@android:color/black"
-                android:textSize="11dp"></TextView>
+                android:textSize="12dp"></TextView>
 
             <TextView
                 android:id="@+id/txtUID"
@@ -60,5 +76,55 @@
                 android:textColor="@android:color/black"
                 android:textSize="20dp"></TextView>
         </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/layoutSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutUserData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtDisplayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:text="txtDisplayName"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"></TextView>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:textIsSelectable="true"
+            android:text="txtEmail"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"></TextView>
+
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
