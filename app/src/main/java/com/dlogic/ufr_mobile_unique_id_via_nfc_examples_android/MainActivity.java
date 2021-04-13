@@ -37,6 +37,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.w3c.dom.Text;
 
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -75,7 +76,7 @@ import static com.dlogic.ufr_mobile_unique_id_via_nfc_examples_android.HostCardE
 
         String deviceIDStr = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID).toUpperCase();
 
-        TextView txtDeviceID = findViewById(R.id.txtUID);
+        TextView txtDeviceID = findViewById(R.id.txtHexUID);
         txtDeviceID.setText(deviceIDStr);
 
         ////////////////////////////////////////////////////////////////
@@ -174,11 +175,17 @@ import static com.dlogic.ufr_mobile_unique_id_via_nfc_examples_android.HostCardE
             TextView txtDisplayName = findViewById(R.id.txtDisplayName);
             txtDisplayName.setText("Display Name: " + user.getDisplayName());
 
-            TextView txtDeviceID = findViewById(R.id.txtUID);
+            TextView txtDeviceID = findViewById(R.id.txtHexUID);
             String user_id = user.getId();
             byte[] hashed_id = toSHA256(user_id.getBytes(StandardCharsets.UTF_8));
             byte[] short_uid = calculateUID(hashed_id);
-            txtDeviceID.setText(toHex(short_uid));
+            short_uid[0] &= ~(1 << 7);
+            String hex_string = toHex(short_uid);
+            txtDeviceID.setText(hex_string);
+
+            BigInteger bi = new BigInteger(hex_string, 16);
+            TextView txtDecimalID = findViewById(R.id.txtDecUID);
+            txtDecimalID.setText(bi.toString());
 
             Button btnSignOut = findViewById(R.id.sign_out_button);
             SignInButton btnSignIn = findViewById(R.id.sign_in_button);
@@ -193,11 +200,20 @@ import static com.dlogic.ufr_mobile_unique_id_via_nfc_examples_android.HostCardE
             Button btnSignOut = findViewById(R.id.sign_out_button);
             SignInButton btnSignIn = findViewById(R.id.sign_in_button);
 
-            TextView txtDeviceID = findViewById(R.id.txtUID);
+            TextView txtDeviceID = findViewById(R.id.txtHexUID);
             String UserUID = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
             byte[] hashed_id = toSHA256(UserUID.getBytes(StandardCharsets.UTF_8));
             byte[] short_uid = calculateUID(hashed_id);
-            txtDeviceID.setText(toHex(short_uid));
+            short_uid[0] &= ~(1 << 7);
+
+            String hex_string = toHex(short_uid);
+            txtDeviceID.setText(hex_string);
+
+            BigInteger bi = new BigInteger(hex_string, 16);
+            TextView txtDecimalID = findViewById(R.id.txtDecUID);
+            txtDecimalID.setText(bi.toString());
+
+
 
             btnSignIn.setVisibility(Button.VISIBLE);
             btnSignOut.setVisibility(Button.INVISIBLE);

@@ -55,17 +55,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/imgUID"
+                android:id="@+id/lblUID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
                 android:text="Unique ID"
                 android:textColor="@android:color/black"
-                android:textSize="12dp"></TextView>
+                android:textSize="20dp"></TextView>
+            <TextView
+                android:id="@+id/lblHexUID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Hexadecimal value:"
+                android:textColor="@android:color/black"
+                android:textSize="11dp"></TextView>
 
             <TextView
-                android:id="@+id/txtUID"
+                android:id="@+id/txtHexUID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -75,6 +84,35 @@
                 android:text=""
                 android:textColor="@android:color/black"
                 android:textSize="20dp"></TextView>
+
+            <TextView
+                android:id="@+id/lblDecUID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:textIsSelectable="true"
+                android:text="Decimal value:"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"></TextView>
+
+            <TextView
+                android:id="@+id/txtDecUID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:textIsSelectable="true"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="20dp"></TextView>
+
+
+
+
+
         </LinearLayout>
 
 

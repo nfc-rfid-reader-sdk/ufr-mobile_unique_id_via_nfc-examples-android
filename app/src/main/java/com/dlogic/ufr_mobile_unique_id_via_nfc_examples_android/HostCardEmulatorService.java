@@ -65,6 +65,7 @@ public class HostCardEmulatorService extends HostApduService {
 
             byte[] hashed_id = toSHA256(UID_str.getBytes(StandardCharsets.UTF_8));
             byte[] short_uid = calculateUID(hashed_id);
+            short_uid[0] &= ~(1 << 7);
             byte[] status = hexStringToByteArray(Const.STATUS_SUCCESS);
             byte[] response = new byte[short_uid.length + status.length];
             System.arraycopy(short_uid, 0, response, 0, short_uid.length);
